@@ -1,0 +1,232 @@
+
+
+  .sidebar {
+  flex: 1;
+  border-right: 0.5px solid rgb(230, 227, 227);
+  max-height: 100%;
+  // min-height:100%;
+  background-color: black;
+
+  .top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6439ff;
+    }
+  }
+
+  hr {
+    height: 0;
+    border: 0.5px solid rgb(230, 227, 227);
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .title {
+        font-size: 10px;
+        font-weight: bold;
+        color: #999;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ece8ff;
+        }
+
+        .icon {
+          font-size: 18px;
+          color: #7451f8;
+        }
+
+        span{
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .bottom{
+      display: flex;
+      align-items: center;
+      margin: 10px;
+
+      .colorOption{
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #7451f8;
+          cursor: pointer;
+          margin: 5px;
+
+          &:nth-child(1){
+              background-color: whitesmoke;
+          }
+          &:nth-child(2){
+              background-color: #333;
+          }
+          &:nth-child(3){
+              background-color: darkblue;
+          }
+      }
+  }
+}
+
+.revenueicon{
+  background: rgba(0, 0, 255, 0.479);
+  color: white;
+  border-radius: 5px;
+ max-width: 100%;
+ width: 40px;
+ height: 40px;
+ text-align:center;
+ margin: 5px;
+
+ .icon{
+margin: 7px;
+ }
+}
+.revenueb{
+  margin-top:-15px;
+  font-weight: bold;
+}
+.revenuep{
+  background:whitesmoke;
+  text-align: center;
+border-radius: 10px;
+  p{
+color: rgba(0, 128, 0, 0.889);
+margin-top: 25px;
+  }
+}
+.orders{
+  color: red;
+  background:rgba(255, 0, 0, 0.2);
+  margin-top: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+.overviewp{
+  color: rgba(0, 128, 0, 0.907);
+  background: rgba(0, 128, 0, 0.359);
+  border-radius: 10px;
+}
+.productp{
+  
+  background:grey;
+  border-radius: 10px;
+   text-align: center; 
+   margin-top:10px 
+}
+.revenu{
+  font-size:15px
+}
+.profile-head{
+  background:blue;
+  height: 100px;
+  max-height: 100%;
+}
+.profile img{
+ max-width: 100%;
+  height: 100px;
+  width: 110px;
+  max-height: 100%;
+  border-radius: 50%;
+  margin-top:-50px
+}
+
+.activity{
+  background: grey;
+  color: white;
+  border-radius: 5px;
+ max-width: 100%;
+ width: 40px;
+ height: 50px;
+ text-align:center;
+ margin: 5px;
+
+//  .icon{
+// margin: 7px;
+//  }
+}
+.profileImg{
+   max-width: 100%;
+  height: 20px;
+  width: 20px;
+  max-height: 100%;
+  border-radius: 50%;
+ 
+}
+
+
+// progress bar
+@keyframes progress {
+  0% { --percentage: 0; }
+  100% { --percentage: var(--value); }
+}
+
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+[role="progressbar"] {
+  --percentage: var(--value);
+  --primary: #369;
+  --secondary: rgba(170, 221, 255, 0.792);
+  // --size: 300px;
+  animation: progress 2s 0.5s forwards;
+  width: var(--size);
+  aspect-ratio: 2 / 1;
+  border-radius: 50% / 100% 100% 0 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[role="progressbar"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0.75turn at 50% 100%, var(--primary) calc(var(--percentage) * 1% / 2), var(--secondary) calc(var(--percentage) * 1% / 2 + 0.1%));
+  mask: radial-gradient(at 50% 100%, white 55%, transparent 55.5%);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(at 50% 100%, #0000 55%, #000 55.5%);
+  -webkit-mask-mode: alpha;
+}
+
+[role="progressbar"]::after {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--primary);
+}
+
+.progressvalue{--value: 76}
